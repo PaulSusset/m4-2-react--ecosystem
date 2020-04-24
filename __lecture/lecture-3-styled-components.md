@@ -10,7 +10,7 @@
 ```jsx
 import styled from 'styled-components';
 
-const Button = styled.button`
+const StyledButton = styled.button`
   background: blueviolet;
   border: none;
   padding: 16px 32px;
@@ -20,7 +20,7 @@ const Button = styled.button`
 `;
 
 ReactDOM.render(
-  <Button>Hello World</Button>,
+  <StyledButton>Hello World</StyledButton>,
   document.querySelector('#root')
 );
 ```
@@ -101,11 +101,14 @@ Convert the following inline styles to styled-components
 
 
 ```jsx
+const StyledDiv = styled.div`
+    margin: 0 auto;
+    height: 300px;
+    `;
+
 function App(props) {
   return (
-    <div className="wrapper">
-      Hello World
-    </div>
+    <StyledDiv>Hello World</StyledDiv>
   )
 }
 ```
@@ -133,14 +136,29 @@ function App(props) {
 ```
 
 ```jsx
+const StyledBtn = styled.button`
+  color: tomato;
+  font-weight: bold;
+  padding: 20px;
+  
+  &:hover, &:focus{
+  transform: translateY(-3px);
+  }
+  // .icon is refering to child of StyledBtn with the class 'icon'
+ .icon{
+  width: 32px;
+  height: 32px;
+  }
+  `;
+
 function IconButton(props) {
   return (
-    <button className="btn">
+    <StyledBtn>
       <i className="icon">
         {props.icon}
       </i>
       {props.children}
-    </button>
+    </StyledBtn>
   )
 }
 ```
